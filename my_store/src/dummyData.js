@@ -2,12 +2,12 @@ const text = "Lorem Ipsum is simply dummy text of the printing and typesetting i
 const imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Dolphind.jpg/200px-Dolphind.jpg";
 const date = 'created 4/11/2018';
 const blogPosts = [
-    {name: 'top', author: 'me', description: text, image: imageUrl, date: date },
-    {name: 'pants', author: 'me', description: text, image: 'https://st.depositphotos.com/1000393/3359/i/950/depositphotos_33592593-stock-photo-grass-world.jpg', date: date },
-    {name: 'else', author: 'me', description: text, image: "http://www.oxiab.com/blogimages/blog/00040_foto_blog.jpg", date: date },
-    {name: 'shorts', author: 'me', description: text, image: imageUrl, date: date },
-    {name: 'cloth', author: 'me', description: text, image: imageUrl, date: date },
-    {name: 'hat', author: 'me', description: text, image: imageUrl, date: date },
+    {id: 1, name: 'top', author: 'me', description: text, image: imageUrl, date: date },
+    {id: 2, name: 'pants', author: 'me', description: text, image: 'https://st.depositphotos.com/1000393/3359/i/950/depositphotos_33592593-stock-photo-grass-world.jpg', date: date },
+    {id: 3, name: 'else', author: 'me', description: text, image: "http://www.oxiab.com/blogimages/blog/00040_foto_blog.jpg", date: date },
+    {id: 4, name: 'shorts', author: 'me', description: text, image: imageUrl, date: date },
+    {id: 5, name: 'cloth', author: 'me', description: text, image: imageUrl, date: date },
+    {id: 6, name: 'hat', author: 'me', description: text, image: imageUrl, date: date },
     ];
 
 export default blogPosts;
