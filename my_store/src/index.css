@@ -45,3 +45,36 @@ body {
   justify-content: space-around;
   /* position: fixed; */
 }
+
+.category-name {
+  background-color: rgb(239, 255, 151);
+  display: flex;
+  justify-content: center;
+}
+
+.item img {
+  width: 200px;
+  height: 250px;
+}
+
+.item {
+  margin: 10px;
+  display: inline-block;
+}
+
+.category-img {
+  width: 40px;
+  height: 40px;
+}
+
+.category-window {
+  position: absolute;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.category-link{
+  text-decoration: none;
+  color: black;  
+}
