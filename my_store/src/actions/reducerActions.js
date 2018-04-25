@@ -31,3 +31,8 @@ export let deleteCartItemReducer = (oldState, action) => {
     })
     return { ...oldState, cart: newCart}
 }
+
+export let getCategoriesReducer = (oldState, action) => {
+    // console.log(action.payload)
+    return { ...oldState, categories: action.payload}
+}

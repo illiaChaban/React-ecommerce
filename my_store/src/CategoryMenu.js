@@ -1,5 +1,5 @@
 import React from 'react';
-import CategoryWindow from './CategoryWindow';
+import CategoriesList from './CategoriesList';
 
 class CategoryMenu extends React.Component {
     constructor(props) {
@@ -8,7 +8,7 @@ class CategoryMenu extends React.Component {
             openMenu: false
         }
     }
-
+    
     render() {
         let {openMenu} = this.state;
 
@@ -23,7 +23,7 @@ class CategoryMenu extends React.Component {
                     className='category-img' 
                     src="https://s3.amazonaws.com/images.seroundtable.com/google-my-business-1403701244.png"
                 />
-                { openMenu ? <CategoryWindow/> : []}
+                { openMenu ? <CategoriesList classN='category-window'/> : []}
             </div>
         )
     }

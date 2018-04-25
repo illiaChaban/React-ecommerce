@@ -31,9 +31,14 @@ body {
 
 .home-categories {
   position: absolute;
-  top: 520px;
+  top: 570px;
   display: flex;
   flex-flow: column;
+  margin-left: 10px;
+}
+h2.home-categories{
+  position: absolute;
+  top: 510px;
 }
 
 .header {

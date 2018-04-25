@@ -4,12 +4,14 @@ import HomePage from './HomePage';
 import CategoryPage from './CategoryPage';
 import ItemPage from './ItemPage';
 import CartPage from './CartPage';
+import GetCategories from './GetCategories';
 
 let MyRouter = () => {
     // console.log(props)
     return (
         <Router>
             <div>
+                <Route path='/' component={GetCategories}/>
                 <Route path='/' exact component={HomePage}/>
                 <Route path='/categories/:categoryName' component={CategoryPage}/>
                 <Route path='/items/:id' component={ItemPage}/>
