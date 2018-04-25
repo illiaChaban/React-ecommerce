@@ -37,7 +37,7 @@ body {
 }
 
 .header {
-  background-color: black;
+  background-color: grey;
   color: white;
   display: flex;
   height: 50px;
@@ -78,3 +78,51 @@ body {
   text-decoration: none;
   color: black;  
 }
+
+.cart img {
+  width: 30px;
+  height: 30px;
+  /* display: inline; */
+}
+
+.cart {
+  color: black;
+}
+
+.cart:hover {
+  background-color: rgba(151, 239, 255, 0.712);
+}
+
+.cart p {
+  margin: 0;
+  display: inline-block;
+}
+
+img.item-page{
+  width: 200px;
+  height: 200px;
+}
+
+.inline {
+  display: inline;
+}
+
+.cart-popup {
+  position: absolute;
+  background-color: white;
+}
+
+.boxed-link {
+  text-decoration: none;
+  padding: 2px;
+  color: black; 
+  border: 1px solid black;
+}
+
+.boxed-link:hover {
+  background-color: rgba(151, 239, 255, 0.712);
+}
+
+/* .box {
+  background-color: black;
+} */

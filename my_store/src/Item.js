@@ -1,12 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ADD_TO_CART } from './actions/actions';
+import store from './store'
 
-let Item = ({item}) => 
-    <Link to={'/items/' + item.id}>
-        <div className='item'>
-            <img src={item.image}/>
-            <h3>{item.name}</h3>        
-        </div>
-    </Link>
+let addToCart = (item) => {
+    store.dispatch({
+        type: ADD_TO_CART,
+        payload: item,
+    })
+}
+
+let Item = ({item}) =>
+            <div className='item'>
+                <Link to={'/items/' + item.id}><img src={item.image}/></Link>
+                <div>
+                    <h3 className='inline'>{item.name}</h3>
+                    <button onClick={() => addToCart(item)}>Add to Cart</button>
+                </div>  
+            </div>
 
 export default Item;

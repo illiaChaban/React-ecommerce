@@ -1,16 +1,17 @@
 import React from 'react';
-import Header from './Header';
+import NavBar from './NavBar';
 import CategoryName from './CategoryName';
 import Items from './Items';
 
 let CategoryPage = (props) => {
+    // console.log(props)
     let category = props.match.params.categoryName;
 
     return (
         <div>
-            <Header/>
+            <NavBar/>
             <CategoryName category={category}/>
-            <Items/>
+            <Items category={category}/>
         </div>
     )
 }
