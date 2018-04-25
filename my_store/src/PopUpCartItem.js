@@ -5,6 +5,7 @@ let PopUpCartItem = ({item}) => {
         <div>
             <img src={item.image}/>
             <p>{item.name}</p>
+            <p>quantity: {item.quantity}</p>
         </div>
     )
 }

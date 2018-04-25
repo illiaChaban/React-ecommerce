@@ -20,10 +20,7 @@ class CartDumb extends React.Component {
         }
 
         return (
-            // <Link to='/cart'>
-                <div 
-                className='cart'
-                onClick={toggleMenu}>
+                <div className='cart' onClick={toggleMenu}>
                     <img src="/images/cartIcon.png"/>
                     <p>{getTotalItemsNumber(cart)}</p>
                     {openMenu ? <PopUpCart cart={cart}/> : []}
@@ -31,21 +28,6 @@ class CartDumb extends React.Component {
         )
     }
 }
-
-
-
-// let CartDumb = ({cart}) => {
-//     return (
-//         <Link to='/cart'>
-//             <div 
-//             className='cart'>
-//                 <img src="/images/cartIcon.png"/>
-//                 <p>{cart.length}</p>
-//             </div>
-//         </Link>
-//     )
-// }
-
 
 let Cart = connect(
     state => ({cart: state.cart}),

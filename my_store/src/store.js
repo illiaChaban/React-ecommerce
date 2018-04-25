@@ -1,7 +1,7 @@
 import {createStore} from 'redux';
 import dummyData from './dummyData';
-import { LOAD_ITEMS, ADD_TO_CART } from './actions/actions';
-import { loadItemsReducer, addToCartReducer } from './actions/reducerActions';
+import { LOAD_ITEMS, addToCart, deleteCartItem } from './actions/actions';
+import { loadItemsReducer, addToCartReducer, deleteCartItemReducer } from './actions/reducerActions';
 
 const dummyState = {
     items: dummyData,
@@ -12,12 +12,12 @@ const dummyState = {
 
 
 let reducers = {
-    LOAD_ITEMS: loadItemsReducer,
-    ADD_TO_CART: addToCartReducer,
+    // LOAD_ITEMS: loadItemsReducer,
+    [addToCart]: addToCartReducer,
+    [deleteCartItem]: deleteCartItemReducer,
 }
 
 let reducer = (oldState = dummyState, action) => {
-    // console.log(dummyState)
     if (reducers[action.type]) {
         let newState = reducers[action.type](oldState, action);
         console.log('newState: ', newState);

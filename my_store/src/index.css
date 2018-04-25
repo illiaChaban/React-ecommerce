@@ -116,6 +116,8 @@ img.item-page{
   text-decoration: none;
   padding: 2px;
   color: black; 
+  margin-top: 145px;
+  
   border: 1px solid black;
 }
 
@@ -123,6 +125,21 @@ img.item-page{
   background-color: rgba(151, 239, 255, 0.712);
 }
 
-/* .box {
-  background-color: black;
-} */
+
+.cart-item{
+  width: 150px;
+}
+.cart-item img{
+  width: 100%;
+  height: 200px;
+  display: block;
+}
+
+
+.cart-item h3{
+  text-align: center;
+  margin: 0;
+}
+.cart-item p{
+  display: inline;
+}
