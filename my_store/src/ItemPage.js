@@ -1,21 +1,36 @@
 import React from 'react';
-// import dummyData from './dummyData';
 import NavBar from './NavBar';
-import store from './store';
+import { connect } from 'react-redux';
+import { fetchUploadItems } from './actions/fetch';
+import ButtonAddToCart from './ButtonAddToCart';
+import getImageUrl from './lib/getImageUrl'
 
-let ItemPage = (props) => {
-    // console.log(props)
-    let itemId = props.match.params.id;
-    let item = store.getState().items.find( item => item.id.toString() === itemId);
-    // console.log(item);
-    return (
-        <div>
-            <NavBar/>
-            <img className='item-page' src={item.image}/>
-            <h3>Description:</h3>
-            <p>{item.description}</p>
-        </div>
-    )
+class ItemPageDumb extends React.Component {
+    componentDidMount() {
+        let { dispatch } = this.props
+        fetchUploadItems({dispatch})
+    }
+
+    render() {
+        let { items, itemId, dispatch } = this.props;
+        let item = items.find( item => item.id === itemId)
+        return (
+            <div>
+                <NavBar/>
+                <img className='item-page' src={getImageUrl({item})} alt='item'/>
+                <ButtonAddToCart item={item} dispatch={dispatch}/>
+                <h3>Description:</h3>
+                <p>{item && item.description}</p>
+            </div>
+        )
+    }
 }
+
+let ItemPage = connect(
+    (state, props) => ({
+        itemId: props.match.params.id,
+        items: state.items,
+    }),
+)(ItemPageDumb);
 
 export default ItemPage;

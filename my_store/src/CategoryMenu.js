@@ -22,6 +22,7 @@ class CategoryMenu extends React.Component {
                     onClick={toggleMenu} 
                     className='category-img' 
                     src="https://s3.amazonaws.com/images.seroundtable.com/google-my-business-1403701244.png"
+                    alt='item'
                 />
                 { openMenu ? <CategoriesList classN='category-window'/> : []}
             </div>

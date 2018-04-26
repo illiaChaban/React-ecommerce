@@ -21,7 +21,7 @@ class CartDumb extends React.Component {
 
         return (
                 <div className='cart' onClick={toggleMenu}>
-                    <img src="/images/cartIcon.png"/>
+                    <img src="/images/cartIcon.png" alt='item pic'/>
                     <p>{getTotalItemsNumber(cart)}</p>
                     {openMenu ? <PopUpCart cart={cart}/> : []}
                 </div>

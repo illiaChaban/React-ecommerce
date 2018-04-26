@@ -1,9 +1,5 @@
 import getUpdatedQuantityCart from '../lib/getUpdatedQuantityCart';
 
-export let loadItemsReducer = (oldState, action) => {
-    return oldState;
-}
-
 export let addToCartReducer = (oldState, action) => {
     let newItem = action.payload;
     let newCart; 
@@ -35,4 +31,8 @@ export let deleteCartItemReducer = (oldState, action) => {
 export let getCategoriesReducer = (oldState, action) => {
     // console.log(action.payload)
     return { ...oldState, categories: action.payload}
+}
+
+export let loadItemsReducer = (oldState, action) => {
+    return { ...oldState, items: action.payload}
 }

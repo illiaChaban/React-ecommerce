@@ -3,13 +3,7 @@ import ReactDOM from 'react-dom';
 import MyRouter from './MyRouter';
 import './index.css';
 import store from './store';
-
-import { connect, Provider} from 'react-redux';
-
-// let Screen = connect(
-//     state => ({state}),
-//     dispatch => ({ dispatch})
-// )(MyRouter);
+import {Provider} from 'react-redux';
 
 let ui = <Provider store={store}><MyRouter /></Provider>
 

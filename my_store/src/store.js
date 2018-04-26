@@ -1,12 +1,10 @@
 import {createStore} from 'redux';
-import dummyData from './dummyData';
-import { addToCart, deleteCartItem } from './actions/actions';
-import { addToCartReducer, deleteCartItemReducer, getCategoriesReducer } from './actions/reducerActions';
-import GetCategories from './GetCategories';
+import { addToCart, deleteCartItem, loadCategories, loadItems } from './actions/actions';
+import { addToCartReducer, deleteCartItemReducer, getCategoriesReducer, loadItemsReducer } from './actions/reducerActions';
 
 const dummyState = {
-    items: dummyData,
-    cart: [dummyData[0], dummyData[2]],
+    items: [],
+    cart: [],
     categories: {}
 
 }
@@ -14,10 +12,10 @@ const dummyState = {
 
 
 let reducers = {
-    // LOAD_ITEMS: loadItemsReducer,
     [addToCart]: addToCartReducer,
     [deleteCartItem]: deleteCartItemReducer,
-    GET_CATEGORIES: getCategoriesReducer,
+    [loadCategories]: getCategoriesReducer,
+    [loadItems]: loadItemsReducer,
 }
 
 let reducer = (oldState = dummyState, action) => {
