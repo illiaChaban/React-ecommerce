@@ -3,7 +3,10 @@ import NavBar from './NavBar';
 import { connect } from 'react-redux';
 import { fetchUploadItems } from './actions/fetch';
 import ButtonAddToCart from './ButtonAddToCart';
-import getImageUrl from './lib/getImageUrl'
+import Images from './Images';
+
+
+
 
 class ItemPageDumb extends React.Component {
     componentDidMount() {
@@ -17,7 +20,7 @@ class ItemPageDumb extends React.Component {
         return (
             <div>
                 <NavBar/>
-                <img className='item-page' src={getImageUrl({item})} alt='item'/>
+                <Images item={item}/>
                 <ButtonAddToCart item={item} dispatch={dispatch}/>
                 <h3>Description:</h3>
                 <p>{item && item.description}</p>

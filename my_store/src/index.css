@@ -152,3 +152,25 @@ img.item-page{
 .login-form{
   position: absolute;
 }
+
+.xtra-register{
+  position: absolute;
+  top: 90px;
+}
+
+.xtra-login{
+  position: absolute;
+  top: 110px;
+}
+
+.user-icon img{
+  width: 40px;
+  height: 40px;
+}
+.user-icon p{
+  margin: 0;
+  position: absolute;
+  color: black;
+  top: 37px;
+  font-size: 0.8em;
+}

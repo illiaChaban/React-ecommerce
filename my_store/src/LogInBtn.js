@@ -1,80 +1,89 @@
 import React from 'react';
-
-// let LogInBtn = ({classN}) => {
-//     return <button className={classN}>LOG IN</button>
-// }
-
-
-class LogInForm extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            email: null,
-            password: null,
-        }
-    }
-
-    render() {
-        let { email, password } = this.state;
-
-        let typeEmail = (event) => this.setState({email: event.target.value})
-        let typePassword = (event) => this.setState({password: event.target.value})
-        let logIn = () => console.log(email, password )
+import { connect } from 'react-redux';
+import { logInUser } from './actions/actions';
+import UserIcon from './UserIcon';
+import { fetchLogIn, fetchRegister } from './actions/fetch';
+import RegisterForm from './RegisterForm';
+import LogInForm from './LogInForm';
 
 
-        return (
-            <div className='login-form'>
-                <input 
-                    id='login-email' 
-                    placeholder='email'
-                    onChange={typeEmail}
-                ></input>
-                <input 
-                    id='login-password' 
-                    placeholder='password'
-                    onChange={typePassword}
-                ></input>
-                <button
-                    onClick={logIn}
-                >
-                    Submit
-                </button>
-            </div>
-        )
-    }
-}
+
+
+
 
 class LogInBtn extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            openMenu: false,
-            logedIn: false,
-
-            signUpForm: false,
+            openedLogInForm: false,
+            mainBtnName: 'LOG IN',
+            openedRegisterForm: false,
         }
     }
 
     render() {
-        let {classN } = this.props;
-        let { openMenu } = this.state;
-
-        let toggleMenu = () => this.setState({openMenu: !openMenu});
-
+        let {classN, user, dispatch } = this.props;
+        let { openedLogInForm, openedRegisterForm, mainBtnName } = this.state;
+                
+        let toggleMenu = () => this.setState({openedLogInForm: !openedLogInForm, openedRegisterForm: false});
+        let openRegisterForm = () => {
+            this.setState({
+                openedLogInForm: false, 
+                openedRegisterForm: true,
+                mainBtnName: 'REGISTER'
+            })
+        }
+        let openLogInForm = () => {
+            this.setState({
+                openedLogInForm: true,
+                openedRegisterForm: false,
+                mainBtnName: 'LOG IN',
+            })
+        }
+        let closeMenu = () => {
+            this.setState({openedLogInForm: false, openedRegisterForm: false, mainBtnName: 'LOG IN'})
+        }
 
         return (
             <div>
-                <button 
-                className={classN}
-                onClick={toggleMenu}>
-                    LOG IN
-                </button>
-                {openMenu && <LogInForm/>}
-                
+                {user.loggedIn ?
+                    <UserIcon user={user}/>
+                :
+                    <button 
+                    className={classN}
+                    onClick={toggleMenu}>
+                        {mainBtnName}
+                    </button>
+                }
+                {openedLogInForm && 
+                    <div>
+                        <LogInForm dispatch={dispatch} closeForm={closeMenu}/>
+                        <button 
+                            className='xtra-register' 
+                            onClick={openRegisterForm}
+                        >Register
+                        </button>
+                    </div>
+                }
+                {openedRegisterForm &&
+                    <div>
+                        <RegisterForm dispatch={dispatch} closeForm={closeMenu}/>
+                        <button
+                            className='xtra-login'
+                            onClick={openLogInForm}
+                        >Log in
+                        </button>
+                    </div>
+                }
             </div>
             
         )
     }
 }
 
-export default LogInBtn;
+export default connect(
+    (state,props) => ({
+        classN: props.classN,
+        user: state.user,
+    })
+)(LogInBtn);

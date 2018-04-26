@@ -36,3 +36,7 @@ export let getCategoriesReducer = (oldState, action) => {
 export let loadItemsReducer = (oldState, action) => {
     return { ...oldState, items: action.payload}
 }
+
+export let logInUserReducer = (oldState, action) => {
+    return { ...oldState, user: action.payload}
+}
