@@ -17,9 +17,10 @@ class CategoryMenu extends React.Component {
         }
 
         return (
-            <div>
+            <div
+            onMouseEnter={toggleMenu}
+            onMouseLeave={toggleMenu}>
                 <img
-                    onClick={toggleMenu} 
                     className='category-img' 
                     src="https://s3.amazonaws.com/images.seroundtable.com/google-my-business-1403701244.png"
                     alt='item'
