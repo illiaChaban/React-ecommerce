@@ -148,3 +148,7 @@ img.item-page{
 .cart-item p{
   display: inline;
 }
+
+.login-form{
+  position: absolute;
+}

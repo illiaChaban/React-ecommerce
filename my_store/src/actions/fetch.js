@@ -1,4 +1,4 @@
-import { applyImages } from '../dummyData';
+// import { applyImages } from '../dummyData';
 import { loadItems } from './actions';
 import { loadCategories } from './actions';
 
@@ -6,7 +6,7 @@ import { loadCategories } from './actions';
 export let fetchUploadItems = ({dispatch}) => {
     return fetch('https://etsetera.herokuapp.com/product')
         .then(res => res.json())
-        .then( items => applyImages(items))
+        // .then( items => applyImages(items))
         .then( items => loadItems({dispatch, items}))
 }
 
