@@ -1,8 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { logInUser } from './actions/actions';
 import UserIcon from './UserIcon';
-import { fetchLogIn, fetchRegister } from './actions/fetch';
 import RegisterForm from './RegisterForm';
 import LogInForm from './LogInForm';
 
