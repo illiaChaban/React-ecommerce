@@ -19,8 +19,6 @@ class CartDumb extends React.Component {
             this.setState({openMenu: !openMenu})
         }
 
-        console.log(cart)
-
         return (
                 <div >
                     { user.loggedIn &&
@@ -29,7 +27,7 @@ class CartDumb extends React.Component {
                         <p>{cart && cart.length}</p>
                         {/* <p>{getTotalItemsNumber(cart)}</p> */}
                         
-                        {openMenu ? <PopUpCart cart={cart}/> : []}
+                        {openMenu ? <PopUpCart/> : []}
                     </div>
                     }
                 </div>
