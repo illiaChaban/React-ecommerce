@@ -14,6 +14,7 @@ let Item = ({item, dispatch}) =>{
             </Link>
             <div>
                 <h3 className='inline'>{item.title}</h3>
+                <p>$ {item.price}</p>
                 <ButtonAddToCart item={item}/>
             </div>  
         </div>

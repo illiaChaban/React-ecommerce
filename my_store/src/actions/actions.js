@@ -48,6 +48,8 @@ updateCart.toString = () => UPDATE_CART;
 
 export let logInUser = ({dispatch, res}) => {
     if (res.user) {
+        window.localStorage.setItem('jwt', res.jwt);
+        
         let userInfo = {
             loggedIn: true,
             jwt: res.jwt,

@@ -1,6 +1,9 @@
 import {createStore} from 'redux';
 import { addToCart, deleteCartItem, loadCategories, loadItems, logInUser, updateCart } from './actions/actions';
 import { addToCartReducer, deleteCartItemReducer, getCategoriesReducer, loadItemsReducer, logInUserReducer } from './actions/reducerActions';
+import { fetchUserMe } from './actions/fetch';
+
+
 
 const dummyState = {
     items: [],
@@ -12,6 +15,7 @@ const dummyState = {
         userId: '',
         username: '',
     }
+    // user: getLocalStorageUserInfo(),
 
 }
 
@@ -42,6 +46,13 @@ let reducer = (oldState = dummyState, action) => {
 
 let store = createStore(reducer, 
 window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
+// let getLocalStorageUserInfo = () => {
+//     fetchUserMe()
+//         .then( res => logInUser({dispatch: store.dispatch, res}))
+// }
+
+// window.getMe = getLocalStorageUserInfo;
 
 export default store;
 

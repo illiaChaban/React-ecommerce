@@ -7,8 +7,8 @@ let PopUpCartItem = ({cartItem ,items}) => {
     return (
         <div>
             <img src={getImageUrl({item})} alt='item'/>
-            <p>{item.title}</p>
-            <p>quantity: {item.quantity}</p>
+            <p>{item && item.title}</p>
+            <p>quantity: {item && item.quantity}</p>
         </div>
     )
 }

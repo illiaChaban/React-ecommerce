@@ -63,3 +63,19 @@ export let fetchDeleteCartItem = (cartItem, user) =>
         },
         method: "DELETE"
     })
+
+export let fetchUserMe = () => {
+    let jwt = window.localStorage.getItem('jwt');
+    if (jwt) {
+        return fetch('https://etsetera.herokuapp.com/user/me', {
+            headers: {
+                "Authorization": "Bearer " + jwt,
+            }
+        })
+            .then( res => res.json())
+            .then( obj => ({ ...obj, jwt}))
+    }
+    return;
+}
+
+window.fetchMe = fetchUserMe;
