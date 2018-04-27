@@ -46,3 +46,11 @@ export let fetchRegister = (state) => {
             .then( res => res.json())
     )
 }
+
+export let fetchGetItemsInCart = ({user}) => 
+    fetch('https://etsetera.herokuapp.com/cartItem?userId=' + user.userId, {
+        headers: {
+            "Authorization": "Bearer " + user.jwt 
+        }
+    })
+        .then( res => res.json())

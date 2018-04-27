@@ -1,5 +1,5 @@
 import {createStore} from 'redux';
-import { addToCart, deleteCartItem, loadCategories, loadItems, logInUser } from './actions/actions';
+import { addToCart, deleteCartItem, loadCategories, loadItems, logInUser, updateCart } from './actions/actions';
 import { addToCartReducer, deleteCartItemReducer, getCategoriesReducer, loadItemsReducer, logInUserReducer } from './actions/reducerActions';
 
 const dummyState = {
@@ -15,6 +15,11 @@ const dummyState = {
 
 }
 
+let updateCartReducer = (oldState, action) => {
+    console.log('updated cart')
+    console.log(action)
+    return { ...oldState, cart: action.payload}
+}
 
 
 let reducers = {
@@ -23,6 +28,7 @@ let reducers = {
     [loadCategories]: getCategoriesReducer,
     [loadItems]: loadItemsReducer,
     [logInUser]: logInUserReducer,
+    [updateCart]: updateCartReducer,
 }
 
 let reducer = (oldState = dummyState, action) => {

@@ -19,10 +19,14 @@ class CartDumb extends React.Component {
             this.setState({openMenu: !openMenu})
         }
 
+        console.log(cart)
+
         return (
                 <div className='cart' onMouseEnter={toggleMenu} onMouseLeave={toggleMenu}>
                     <img src="/images/cartIcon.png" alt='item pic'/>
-                    <p>{getTotalItemsNumber(cart)}</p>
+                    <p>{cart && cart.length}</p>
+                    {/* <p>{getTotalItemsNumber(cart)}</p> */}
+                    
                     {openMenu ? <PopUpCart cart={cart}/> : []}
                 </div>
         )

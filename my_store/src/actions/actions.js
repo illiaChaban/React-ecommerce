@@ -5,6 +5,7 @@ const DELETE_CART_ITEM = 'DELETE_CART_ITEM';
 const LOAD_ITEMS = 'LOAD_ITEMS';
 const LOAD_CATEGORIES = 'LOAD_CATEGORIES';
 const LOG_IN_USER = 'LOG_IN_USER';
+const UPDATE_CART = 'UPDATE_CART';
 
 export let deleteCartItem = ({item, dispatch}) => {
     dispatch({
@@ -38,18 +39,29 @@ export let loadCategories = ({dispatch, categories}) => {
 }
 loadCategories.toString = () => LOAD_CATEGORIES;
 
+export let updateCart = ({dispatch, cart}) =>
+    dispatch({
+        type: UPDATE_CART,
+        payload: cart,
+    })
+updateCart.toString = () => UPDATE_CART;
+
 export let logInUser = ({dispatch, res}) => {
     if (res.user) {
         let userInfo = {
-        loggedIn: true,
-        jwt: res.jwt,
-        userId: res.user._id,
-        username: res.user.username,
+            loggedIn: true,
+            jwt: res.jwt,
+            userId: res.user._id,
+            username: res.user.username,
+        }
+        console.log(res)
+        dispatch({
+            type: LOG_IN_USER,
+            payload: userInfo
+        })
+        return userInfo;
     }
-    dispatch({
-        type: LOG_IN_USER,
-        payload: userInfo
-    })
-    }   
+    return;   
 }
 logInUser.toString = () => LOG_IN_USER;
+

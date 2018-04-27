@@ -1,6 +1,6 @@
 import React from 'react';
-import { fetchLogIn} from './actions/fetch';
-import { logInUser } from './actions/actions';
+import { fetchLogIn, fetchGetItemsInCart} from './actions/fetch';
+import { logInUser, updateCart } from './actions/actions';
 
 
 class LogInForm extends React.Component{
@@ -20,6 +20,8 @@ class LogInForm extends React.Component{
         let logIn = () => {
             fetchLogIn(this.state)
                 .then( (res) => logInUser({dispatch, res}))
+                .then( (user) => fetchGetItemsInCart({user}))
+                .then( cart => updateCart({dispatch, cart}) )
         }
 
 

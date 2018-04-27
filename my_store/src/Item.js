@@ -14,7 +14,7 @@ let Item = ({item, dispatch}) =>{
             </Link>
             <div>
                 <h3 className='inline'>{item.title}</h3>
-                <ButtonAddToCart item={item} dispatch={dispatch}/>
+                <ButtonAddToCart item={item}/>
             </div>  
         </div>
     )
