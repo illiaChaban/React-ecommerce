@@ -13,7 +13,7 @@ class CartDumb extends React.Component {
 
     render() {
         let {openMenu} = this.state;
-        let {cart} = this.props;
+        let {cart, user} = this.props;
 
         let toggleMenu = () => {
             this.setState({openMenu: !openMenu})
@@ -22,19 +22,26 @@ class CartDumb extends React.Component {
         console.log(cart)
 
         return (
-                <div className='cart' onMouseEnter={toggleMenu} onMouseLeave={toggleMenu}>
-                    <img src="/images/cartIcon.png" alt='item pic'/>
-                    <p>{cart && cart.length}</p>
-                    {/* <p>{getTotalItemsNumber(cart)}</p> */}
-                    
-                    {openMenu ? <PopUpCart cart={cart}/> : []}
+                <div >
+                    { user.loggedIn &&
+                    <div className='cart' onMouseEnter={toggleMenu} onMouseLeave={toggleMenu}>
+                        <img src="/images/cartIcon.png" alt='item pic'/>
+                        <p>{cart && cart.length}</p>
+                        {/* <p>{getTotalItemsNumber(cart)}</p> */}
+                        
+                        {openMenu ? <PopUpCart cart={cart}/> : []}
+                    </div>
+                    }
                 </div>
         )
     }
 }
 
 let Cart = connect(
-    state => ({cart: state.cart}),
+    state => ({
+        cart: state.cart,
+        user: state.user,
+    }),
 )(CartDumb)
 
 
