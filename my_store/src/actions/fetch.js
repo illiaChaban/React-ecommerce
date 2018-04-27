@@ -54,3 +54,12 @@ export let fetchGetItemsInCart = ({user}) =>
         }
     })
         .then( res => res.json())
+
+
+export let fetchDeleteCartItem = (cartItem, user) => 
+    fetch('https://etsetera.herokuapp.com/cartItem/' + cartItem.id, {
+        headers: {
+            "Authorization": "Bearer " + user.jwt 
+        },
+        method: "DELETE"
+    })

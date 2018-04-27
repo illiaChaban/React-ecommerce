@@ -7,10 +7,10 @@ const LOAD_CATEGORIES = 'LOAD_CATEGORIES';
 const LOG_IN_USER = 'LOG_IN_USER';
 const UPDATE_CART = 'UPDATE_CART';
 
-export let deleteCartItem = ({item, dispatch}) => {
+export let deleteCartItem = ({cartItem, dispatch}) => {
     dispatch({
         type: DELETE_CART_ITEM,
-        payload: item,
+        payload: cartItem,
     })
 }
 deleteCartItem.toString = () => DELETE_CART_ITEM;
